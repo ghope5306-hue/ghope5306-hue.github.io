@@ -52,6 +52,62 @@
         <div class="resultGrid" id="cards"></div>
       </div>
     </div>
+
+    <div class="section" id="live">
+      <div class="section__head">
+        <h2>AI 直播塔羅占卜間</h2>
+        <span class="small">輸入問題後，AI 主播即時解牌與回覆</span>
+      </div>
+
+      <div class="liveLayout">
+        <article class="card liveStage">
+          <div class="liveStage__head">
+            <span class="tag">LIVE</span>
+            <span class="small" id="liveStatus">待機中</span>
+          </div>
+          <h3>AI 主播：星語</h3>
+          <p>今晚主題：感情、工作、金流都可問。先聚焦一個問題，宇宙才會回你清楚的路。</p>
+          <div class="livePulse" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span>
+          </div>
+          <div class="small">在線人數：<b id="viewerCount">128</b></div>
+        </article>
+
+        <article class="card liveChat">
+          <div class="section__head" style="margin-bottom:10px">
+            <h3 style="margin:0">聊天室</h3>
+            <button class="btn btn--ghost" id="toggleLiveBtn" type="button">開始直播</button>
+          </div>
+          <ul id="chatFeed" class="chatFeed"></ul>
+        </article>
+      </div>
+
+      <form id="liveForm" class="card liveForm">
+        <h3>提問區</h3>
+        <div class="liveForm__grid">
+          <input id="nickname" type="text" maxlength="20" placeholder="你的暱稱（例：月亮旅人）" />
+          <select id="liveSpread"></select>
+          <select id="liveTone">
+            <option value="穩定">語氣：穩定務實</option>
+            <option value="溫柔">語氣：溫柔療癒</option>
+            <option value="犀利">語氣：直接犀利</option>
+          </select>
+        </div>
+        <textarea id="questionInput" rows="3" placeholder="請輸入你目前最困擾的一件事，例如：我要不要換工作？"></textarea>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:10px">
+          <button class="btn btn--solid" type="submit">AI 主播開始解牌</button>
+          <button class="btn btn--ghost" type="button" id="demoQuestionBtn">用示範問題</button>
+        </div>
+      </form>
+
+      <article class="result" id="liveResult">
+        <div class="section__head" style="margin-bottom:10px">
+          <h3 style="margin:0">AI 即時解讀</h3>
+          <span class="small">本結果僅供自我探索，不取代專業建議</span>
+        </div>
+        <div id="liveAnswer" class="liveAnswer"></div>
+      </article>
+    </div>
   </main>
 
   <script src="./data.js"></script>

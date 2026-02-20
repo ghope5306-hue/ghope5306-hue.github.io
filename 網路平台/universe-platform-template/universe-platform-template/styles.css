@@ -164,10 +164,50 @@ input::placeholder{color:rgba(170,179,192,.75)}
 .badge{display:inline-block;font-size:12px;padding:3px 8px;border:1px solid var(--line);border-radius:999px;margin-bottom:6px;color:rgba(255,255,255,.78)}
 .face b{color:rgba(255,255,255,.92)}
 
+/* Live tarot studio */
+.liveLayout{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.liveStage__head{display:flex;justify-content:space-between;align-items:center;gap:10px}
+.livePulse{display:flex;align-items:flex-end;gap:6px;height:36px;margin:12px 0}
+.livePulse span{
+  width:8px;border-radius:999px;background:linear-gradient(180deg,var(--accent),var(--accent2));
+  animation:pulse 1.1s ease-in-out infinite;
+}
+.livePulse span:nth-child(2){animation-delay:.12s}
+.livePulse span:nth-child(3){animation-delay:.24s}
+.livePulse span:nth-child(4){animation-delay:.36s}
+.livePulse span:nth-child(5){animation-delay:.48s}
+
+@keyframes pulse{
+  0%,100%{height:8px;opacity:.45}
+  50%{height:34px;opacity:1}
+}
+
+.liveChat{min-height:220px}
+.chatFeed{margin:0;padding:0;list-style:none;display:flex;flex-direction:column;gap:8px;max-height:220px;overflow:auto}
+.chatFeed li{padding:8px 10px;border-radius:12px;background:rgba(255,255,255,.03);border:1px solid var(--line);font-size:14px;line-height:1.5;color:var(--muted)}
+.chatFeed b{color:var(--text)}
+
+.liveForm{margin-top:12px;min-height:auto}
+.liveForm__grid{display:grid;grid-template-columns:1fr 180px 180px;gap:10px;margin-bottom:10px}
+textarea{
+  width:100%;padding:10px 12px;border-radius:14px;border:1px solid var(--line);
+  background:rgba(255,255,255,.03);color:var(--text);resize:vertical;font:inherit;
+}
+
+#liveResult{margin-top:12px}
+.liveAnswer{line-height:1.8;color:var(--muted)}
+.liveAnswer h4{margin:0 0 8px;color:var(--text)}
+.liveAnswer .pillRow{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 10px}
+
+body.live-on #liveStatus{color:var(--accent2)}
+body.live-on .liveStage .tag{box-shadow:0 0 0 1px rgba(46,229,157,.2), 0 0 24px rgba(46,229,157,.15)}
+
 /* Responsive */
 @media (max-width: 920px){
   .hero__grid{grid-template-columns:1fr}
   .grid{grid-template-columns:1fr}
+  .liveLayout{grid-template-columns:1fr}
+  .liveForm__grid{grid-template-columns:1fr}
   .mega{position:relative;top:0;width:100%}
   .back{width:10px}
   .back.last{width:92px}
